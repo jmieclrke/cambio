@@ -2,6 +2,7 @@
 #include "Cards.h"
 #include <iostream>
 #include <random>
+#include <algorithm>
 
 class Deck {
 public:

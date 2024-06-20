@@ -1,30 +1,42 @@
 #include "Deck.h"
 #include "ValueCards.h"
+#include "AbilityCards.h"
 
 Deck::Deck() {
-	int numOfCards = 0, cardValue=1;
+	int numOfCards = 0, cardValue = 1, abilityVal = 0;
 	char cardSuit = 'H';
 
 	while (numOfCards < 52) {
 		cout << cardValue << " " << cardSuit << endl;
-		//Cards* newCard = nullptr;
+		Cards* newCard = nullptr;
 		if (cardValue <= 6) {
-			//newCard = new ValueCards(cardValue, cardSuit);
+			newCard = new ValueCards(cardValue, cardSuit);
 		}
 		else if (cardValue == 7 || cardValue == 8) {
-			//create look at own cards
+			abilityVal = 78;
+			newCard = new AbilityCards(cardValue, cardSuit, abilityVal);
 		}
 		else if (cardValue == 9 || cardValue == 10) {
-			//create look at opponent cards
+			abilityVal = 910;
+			newCard = new AbilityCards(cardValue, cardSuit, abilityVal);
 		}
 		else if (cardValue == 11 || cardValue == 12) {
-			//create blind swap
+			abilityVal = 1112;
+			newCard = new AbilityCards(cardValue, cardSuit, abilityVal);
 		}
 		else if (cardValue == 13 && (cardSuit == 'H' || cardSuit == 'D')) {
-			//create red king
+			newCard = new ValueCards(cardValue, cardSuit);
+		}
+		else if (cardValue == 13 && (cardSuit == 'C' || cardSuit == 'S')) {
+			abilityVal = 13;
+			newCard = new ValueCards(cardValue, cardSuit);
 		}
 		else {
-			//create black king
+			std::cout << "There has been an error!" << std::endl;
+		}
+
+		if (newCard != nullptr) {
+			DeckOfCards.push_back(newCard);
 		}
 
 		cardValue++;
@@ -44,6 +56,16 @@ Deck::Deck() {
 		numOfCards++;
 
 	}
+	std::cout << "Unshuffled\n";
+	for (auto i : DeckOfCards)
+		std::cout << i->getCard() << std::endl;
+}
 	
 	
+
+void Deck::ShuffleDeck() {
+	auto rng = std::default_random_engine{};
+	std::shuffle(std::begin(DeckOfCards), std::end(DeckOfCards), rng);
+	for (auto i : DeckOfCards)
+		std::cout << i->getCard() << std::endl;
 }

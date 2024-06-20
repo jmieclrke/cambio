@@ -41,13 +41,16 @@ int main() {
 			cout << "9 and 10 : Take a look at one card from any opponent’s hand" << endl;
 			cout << "Jack : Blindly swap a card from your hand with one of your opponents" << endl;
 			cout << "Queen : Swap a card with an opponent after looking at both cards" << endl;
-			cout << "Red King : 1 Point" << endl;
-			cout << "Other Kings : 10 Points" << endl;
+			cout << "Red Kings : -1 Point" << endl;
+			cout << "Black Kings : Look at a card and swap" << endl;
 		}
 		else if(command.compare("play") == 0){
 			//create deck
 			Deck deck = Deck();
-			//shuffle deck.
+			std::cout << "##############\n";
+			std::cout << "Shuffled Deck:" << std::endl;
+			deck.ShuffleDeck();
+			
 			//deal four card to each player.
 			//display cards.
 			//loops turns until cambio is typed.

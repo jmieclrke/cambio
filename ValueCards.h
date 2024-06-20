@@ -1,6 +1,7 @@
 #pragma once
 #include "Cards.h"
 
+
 class ValueCards : public Cards {
 public:
 	ValueCards(int in_value, char in_suit);

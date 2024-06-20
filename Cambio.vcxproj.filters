@@ -24,6 +24,9 @@
     <ClCompile Include="ValueCards.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AbilityCards.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Deck.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ValueCards.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityCards.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
