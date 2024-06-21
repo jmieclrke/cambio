@@ -1,2 +1,9 @@
 ﻿  Deck.cpp
+C:\Users\Computer Science\Desktop\cambio\Deck.cpp(67,33): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  main.cpp
+  Generating Code...
   Cambio.vcxproj -> C:\Users\Computer Science\Desktop\cambio\x64\Debug\Cambio.exe

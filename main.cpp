@@ -1,5 +1,8 @@
 #define _CRT_SERCURE_NO_WARNINGS
 #include "Deck.h"
+#include "Human.h"
+#include "CPU.h"
+
 
 #include <iostream>
 #include <vector>
@@ -11,9 +14,12 @@ int main() {
 
 	string userCommand;
 	vector <string> parameters;
+	Cards* temp = 0;
 
 	cout << "Welcome to Cambio!" << endl;
 	cout << "[help] - Instructions on how to play Cambio" << endl;
+	cout << "[play] - Start the game" << endl;
+	cout << "[exit] - Exit program" << endl;
 	while (userCommand != "exit") {
 
 
@@ -47,13 +53,35 @@ int main() {
 		else if(command.compare("play") == 0){
 			//create deck
 			Deck deck = Deck();
+			Human human;
+			CPU cpu;
 			std::cout << "##############\n";
 			std::cout << "Shuffled Deck:" << std::endl;
 			deck.ShuffleDeck();
 			
-			//deal four card to each player.
+			//Deals out 4 cards to the user and then displays them.
+			int i = 0;
+			while (i < 4) {
+				temp = deck.takeCard();
+				human.SetHand(temp);
+				temp = deck.takeCard();
+				cpu.SetHand(temp);
+				i++;
+			}
+			std::cout << "Human hand: \n";
+			human.showHand();
+			std::cout << "CPU hand: \n";
+			cpu.showHand();
+
+					
+
+			//deal four cards to cpu (cpu.deal()).
+			//deal four cards to player (player1.deal()).
 			//display cards.
 			//loops turns until cambio is typed.
+		}
+		else if (command.compare("exit") == 0) {
+			return(0);
 		}
 		parameters.clear();
 	}

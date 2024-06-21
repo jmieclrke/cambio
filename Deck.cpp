@@ -1,6 +1,7 @@
 #include "Deck.h"
 #include "ValueCards.h"
 #include "AbilityCards.h"
+#include <chrono>
 
 Deck::Deck() {
 	int numOfCards = 0, cardValue = 1, abilityVal = 0;
@@ -61,11 +62,16 @@ Deck::Deck() {
 		std::cout << i->getCard() << std::endl;
 }
 	
-	
-
 void Deck::ShuffleDeck() {
-	auto rng = std::default_random_engine{};
+	auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+	std::default_random_engine rng(seed);
 	std::shuffle(std::begin(DeckOfCards), std::end(DeckOfCards), rng);
 	for (auto i : DeckOfCards)
 		std::cout << i->getCard() << std::endl;
+}
+
+Cards* Deck::takeCard() {
+	Cards* temp = DeckOfCards.front();
+	DeckOfCards.erase(DeckOfCards.begin());
+	return temp;
 }
