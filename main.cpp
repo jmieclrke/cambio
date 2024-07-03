@@ -69,9 +69,30 @@ int main() {
 				i++;
 			}
 			std::cout << "Human hand: \n";
-			human.showHand();
+			human.showHand(); //Shows the user their hand so they can memorise the cards they have.
+			system("pause"); //Pauses the game and waits for an input to continue.
+			cout << "\033[2J\033[1;1H"; //Clears the screen.
+
+			//For testing to show that the CPU recieves a hand.
 			std::cout << "CPU hand: \n";
 			cpu.showHand();
+
+			//The game of cambio starts. 
+			std::string choice = "empty"; //Used to initialise the variable
+			while (choice != "cambio") { //The game will continue until cambio is typed by the player.
+				//draw card or call cambio
+				//swap card in hand or use ability
+				//change to cpu turn
+				std::cout << "[draw] or [cambio]\n";
+				std::cin >> choice;
+				if (choice == "draw") {
+					temp = deck.takeCard();
+					human.drawCard(temp);
+				}
+				std::cout << "[keep], [discard], or [use ability]\n";
+				//IM HERE=========================
+
+			}
 
 					
 

@@ -1,0 +1,11 @@
+std::cout << "+-----+\n";
+std::cout << "|3 ";
+std::cout << "xE2";
+std::cout << "  |\n";
+std::cout << "|  ";
+std::cout << "\u2660";
+std::cout << "  |\n";
+std::cout << "|  ";
+std::cout << "\u2660";
+std::cout << "  |\n";
+std::cout << "+-----+\n";
